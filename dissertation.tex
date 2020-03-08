@@ -1,0 +1,82 @@
+\documentclass{dissertation}
+%\documentclass[print]{dissertation}
+%\documentclass[print,draft]{dissertation}
+
+\hyphenation{TestRoots WatchDog proj-ect proj-ects Ec-lipse two-fold clie-nts Mo-cki-to wide-spread}
+\newcommand{\sparkline}[1]{$\vcenter{\hbox{\includegraphics[scale=0.04]{#1}}}$}
+
+\makeglossaries
+
+\newcommand*{\origrightarrow}{}
+\let\oldarrow\textrightarrow
+\renewcommand*{\textrightarrow}{\fontfamily{cmr}\selectfont\origrightarrow}
+\loadglsentries[main]{glossary}
+
+\input{abbreviations}
+
+\begin{document}
+
+%% Specify the title and author of the thesis. This information will be used on
+%% the title page (in title/title.tex) and in the metadata of the final PDF.
+\title{An Empirical Evaluation of Feedback-Driven Software Development}
+\author{Moritz Marc}{Beller}
+
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+\include{title/title}
+
+%% The (optional) dedication can be used to thank someone or display a
+%% significant quotation.
+\dedication{\epigraph{I [...] like to give the maximum in everything I do. The maximum I have. The
+    maximum I can give. I am not perfect. But if I do something, I do it [as best I can].
+    %And many people are not made like this. There are only few. But I like these few.
+  }{Reinhold Messner}}
+
+\tableofcontents
+
+\include{summary/summary}
+\include{acks/acks}
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+%% Turn on thumb indices.
+\thumbtrue
+
+\include{introduction/introduction}
+\include{conclusion/conclusion}
+
+%% Use letters for the chapter numbers of the appendices.
+%\appendix
+
+%\include{appendix-a/appendix-a}
+
+%% Turn off thumb indices for unnumbered chapters.
+\thumbfalse
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\setheader{Bibliography}
+
+URLs in this thesis have been archived on Archive.org. Their link target in digital editions refers
+to this timestamped version.
+
+\bibliographystyle{unsrt}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{dissertation}
+
+%% \chapter*{Glossary}
+
+\glsaddall
+\printglossary[type=\acronymtype,title={Glossary}]
+\addcontentsline{toc}{chapter}{Glossary}
+\setheader{Glossary}
+
+\include{cv/cv}
+\include{publications/publications}
+\include{ipa/ipadissertations_2018}
+
+\end{document}
+
